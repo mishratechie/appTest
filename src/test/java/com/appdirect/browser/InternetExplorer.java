@@ -15,7 +15,7 @@ public class InternetExplorer {
     public WebDriver getIEDriver(String driverResource){
 
         System.out.println("launching IE browser");
-        System.setProperty("webdriver.ie.driver", driverResource+"/MicrosoftWebDriver.exe");
+        System.setProperty("webdriver.ie.driver", driverResource+"/IEDriverServer.exe");
         driver = new InternetExplorerDriver();
         driver.manage().window().maximize();
         return driver=new InternetExplorerDriver();
