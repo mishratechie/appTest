@@ -14,6 +14,10 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Ashutosh on 31-Aug-16.
+<<<<<<< HEAD
+=======
+ * Please contact mishra.techie@gmail.com with your queries
+>>>>>>> c7f363914d4748ee58f3fd36f9df0d838c96571d
  */
 public class BrowserBase {
 
@@ -54,6 +58,7 @@ public class BrowserBase {
             driver.manage().window().maximize();
         }
 
+
         driver.navigate().to(PropertiesInitializer.getInstance(BrowserBase.environmentToRun).getBaseURL());
 
     }
@@ -64,8 +69,8 @@ public class BrowserBase {
         String jScriptResult = (String) js.executeScript("return "+jscript);
 
         return jScriptResult;
-    }
 
+    }
 
     @AfterMethod
     public void tearDown() {
