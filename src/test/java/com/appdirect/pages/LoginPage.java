@@ -14,16 +14,13 @@ public class LoginPage {
     private By signupforaccount = By.linkText("Sign up for an account");
     private By signup = By.name("Sign Up");
 
-
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-
-    public SignUpPage clickSignUpForAnAccount(){
+    public SignUpPage clickSignUpForAnAccount() {
 
         driver.findElement(signupforaccount).click();
-        System.out.println("clickSignUpForAnAccount - Performed");
         return new SignUpPage(driver);
     }
 }

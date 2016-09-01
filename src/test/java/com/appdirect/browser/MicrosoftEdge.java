@@ -10,15 +10,14 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
  */
 public class MicrosoftEdge {
 
-    public static WebDriver driver=null;
+    public static WebDriver driver = null;
 
-
-    public WebDriver getIEDriver(String driverResource){
+    public WebDriver getIEDriver(String driverResource) {
 
         System.out.println("launching Edge browser");
-        System.setProperty("webdriver.edge.driver", driverResource+"/MicrosoftWebDriver.exe");
+        System.setProperty("webdriver.edge.driver", driverResource + "/MicrosoftWebDriver.exe");
         driver = new EdgeDriver();
         driver.manage().window().maximize();
-        return driver=new InternetExplorerDriver();
+        return driver = new InternetExplorerDriver();
     }
 }

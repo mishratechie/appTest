@@ -9,15 +9,14 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
  */
 public class InternetExplorer {
 
-    public static WebDriver driver=null;
+    public static WebDriver driver = null;
 
-
-    public WebDriver getIEDriver(String driverResource){
+    public WebDriver getIEDriver(String driverResource) {
 
         System.out.println("launching IE browser");
-        System.setProperty("webdriver.ie.driver", driverResource+"/IEDriverServer.exe");
+        System.setProperty("webdriver.ie.driver", driverResource + "/IEDriverServer.exe");
         driver = new InternetExplorerDriver();
         driver.manage().window().maximize();
-        return driver=new InternetExplorerDriver();
+        return driver = new InternetExplorerDriver();
     }
 }

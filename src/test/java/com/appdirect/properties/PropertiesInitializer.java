@@ -13,37 +13,32 @@ import java.util.Properties;
 public class PropertiesInitializer {
 
 
-    private static PropertiesInitializer instance =null;
+    private static PropertiesInitializer instance;
+
+    private Properties properties;
+
+    private PropertiesInitializer(String ENV) throws FileNotFoundException, IOException {
 
 
+        this.properties = new Properties();
 
-    private Properties properties = null;
-
-    private PropertiesInitializer(String ENV) throws FileNotFoundException, IOException{
-
-
-        this.properties=new Properties();
-
-        File fileUserProp = new File("./src/test/resources/props/"+ENV+".properties");
+        File fileUserProp = new File("./src/test/resources/props/" + ENV + ".properties");
         //String pathUserProp = fileUserProp.getAbsolutePath();
-        //System.out.println(pathUserProp);
         properties.load(new FileInputStream(fileUserProp));
     }
 
-    public static PropertiesInitializer getInstance(String env) throws FileNotFoundException, IOException{
-        if(instance==null){
-            instance=new PropertiesInitializer(env);
+    public static PropertiesInitializer getInstance(String env) throws IOException {
+        if (instance == null) {
+            instance = new PropertiesInitializer(env);
         }
 
         return instance;
     }
 
 
-
-    public  String getBaseURL(){
+    public String getBaseURL() {
         return properties.getProperty("base.url");
     }
-
 
 
 }

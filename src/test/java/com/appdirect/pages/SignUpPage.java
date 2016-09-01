@@ -12,6 +12,7 @@ import org.testng.Assert;
  * Please contact mishra.techie@gmail.com with your queries
  */
 public class SignUpPage {
+
     private WebDriver driver;
     private By thankyoumsg = By.xpath(".//div[@class='adb-local_alert--content']/h3");
     private By signupbutton = By.name("userSignupButton");
@@ -22,27 +23,27 @@ public class SignUpPage {
         this.driver = driver;
     }
 
-
-    public SignUpPage enterEmail(){
+    public SignUpPage enterEmail() {
 
         driver.findElement(email).sendKeys(Helper.generateRandomEmailId());
-        System.out.println("clickSignUpForAnAccount - Performed");
         return this;
     }
-    public SignUpPage clickSignUp(){
+
+    public SignUpPage clickSignUp() {
 
         driver.findElement(signupbutton).click();
-        System.out.println("signupbutton - Performed");
         return this;
     }
-    public SignUpPage verifyRegisterationMessage(){
+
+    public SignUpPage verifyRegisterationMessage() {
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, 8000);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(thankyoumsg));
-        String message=driver.findElement(thankyoumsg).getText();
+
+        String message = driver.findElement(thankyoumsg).getText();
         System.out.println(message);
 
-        Assert.assertEquals(message,"Thanks for registering.");
+        Assert.assertEquals(message, "Thanks for registering.");
         return this;
     }
 

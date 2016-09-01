@@ -21,7 +21,6 @@ public class MyTestCase extends BrowserBase {
 
     HomePage homePage;
 
-
     @BeforeClass
     public void init() {
 
@@ -30,7 +29,7 @@ public class MyTestCase extends BrowserBase {
 
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void mytestcase() throws IOException {
 
         homePage=new HomePage(driver);
@@ -39,11 +38,5 @@ public class MyTestCase extends BrowserBase {
                 .enterEmail()
                 .clickSignUp()
                 .verifyRegisterationMessage();
-
-
-
-
-
-
     }
 }

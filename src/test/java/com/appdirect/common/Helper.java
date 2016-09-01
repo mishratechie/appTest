@@ -12,8 +12,8 @@ public class Helper {
 
     public static String generateRandomEmailId() {
 
-        String emailID= RandomStringUtils.randomAlphabetic(8);
-        String email=emailID+"@yopmail.com";
+        String emailID = RandomStringUtils.randomAlphabetic(8);
+        String email = emailID + "@yopmail.com";
         System.out.println(email);
         return email;
     }

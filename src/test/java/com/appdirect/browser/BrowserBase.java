@@ -14,10 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Ashutosh on 31-Aug-16.
-<<<<<<< HEAD
-=======
- * Please contact mishra.techie@gmail.com with your queries
->>>>>>> c7f363914d4748ee58f3fd36f9df0d838c96571d
  */
 public class BrowserBase {
 
@@ -51,22 +47,21 @@ public class BrowserBase {
             microsoftEdge.getIEDriver(driverResource);
             driver.manage().window().maximize();
 
-        }else if(browserToRun.equalsIgnoreCase("ie")){
-            InternetExplorer internetExplorer=new InternetExplorer();
+        } else if (browserToRun.equalsIgnoreCase("ie")) {
+            InternetExplorer internetExplorer = new InternetExplorer();
             internetExplorer.getIEDriver(driverResource);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().maximize();
         }
 
-
         driver.navigate().to(PropertiesInitializer.getInstance(BrowserBase.environmentToRun).getBaseURL());
 
     }
 
-    public  String jScriptExecutor(WebDriver driver,String jscript) {
+    public String jScriptExecutor(WebDriver driver, String jscript) {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        String jScriptResult = (String) js.executeScript("return "+jscript);
+        String jScriptResult = (String) js.executeScript("return " + jscript);
 
         return jScriptResult;
 

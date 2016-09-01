@@ -10,13 +10,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Firefox {
 
 
-    public static  WebDriver driver=null;
-
+    public static WebDriver driver = null;
 
     public WebDriver getFirefoxDriver() {
 
         System.out.println("launching Firefox browser");
-        return driver=new FirefoxDriver();
+        return driver = new FirefoxDriver();
     }
 
 
