@@ -48,6 +48,11 @@ public class BrowserBase {
             microsoftEdge.getIEDriver(driverResource);
             driver.manage().window().maximize();
 
+        }else if(browserToRun.equalsIgnoreCase("ie")){
+            InternetExplorer internetExplorer=new InternetExplorer();
+            internetExplorer.getIEDriver(driverResource);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().window().maximize();
         }
 
         // driver.get(PropertiesInitializer.getInstance(BrowserBase.environmentToRun).getBaseURL());
