@@ -11,7 +11,7 @@ import org.testng.Assert;
  */
 public class SignUpPage {
     private WebDriver driver;
-    private By thankyoumsg = By.xpath("//div[@class='adb-local_alert--content']/h3");
+    private By thankyoumsg = By.xpath(".//div[@class='adb-local_alert--content']/h3");
     private By signupbutton = By.name("userSignupButton");
     private By signin = By.name("signin");
     private By email = By.name("emailAddress");
@@ -35,6 +35,8 @@ public class SignUpPage {
     }
     public SignUpPage verifyRegisterationMessage(){
 
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 8000);
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(thankyoumsg));
         String message=driver.findElement(thankyoumsg).getText();
         System.out.println(message);
 
