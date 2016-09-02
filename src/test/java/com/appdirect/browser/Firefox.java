@@ -4,15 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
- * Created by Ashutosh on 31-Aug-16.
- * Please contact mishra.techie@gmail.com with your queries
+ * Created by Ashutosh on 02-Sep-16.
  */
+
+/*
+* Contains Firefox browser initialization code
+* */
 public class Firefox {
 
 
     public static WebDriver driver = null;
 
-    public WebDriver getFirefoxDriver() {
+    public WebDriver getDriver() {
 
         System.out.println("launching Firefox browser");
         return driver = new FirefoxDriver();

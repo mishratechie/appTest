@@ -8,8 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 /**
- * Created by Ashutosh on 01-Sep-16.
- * Please contact mishra.techie@gmail.com with your queries
+ * Created by Ashutosh on 02-Sep-16.
  */
 public class SignUpPage {
 
@@ -20,6 +19,14 @@ public class SignUpPage {
     private By email = By.name("emailAddress");
 
     public SignUpPage(WebDriver driver) {
+
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5000);
+        webDriverWait.until(ExpectedConditions.urlContains("signup"));
+        String url = driver.getCurrentUrl();
+        if(!url.contains("signup"))
+        {
+            System.err.println("This is not the SIGNUP page");
+        }
         this.driver = driver;
     }
 

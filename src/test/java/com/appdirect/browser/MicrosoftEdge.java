@@ -5,14 +5,17 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 /**
- * Created by Ashutosh on 31-Aug-16.
- * Please contact mishra.techie@gmail.com with your queries
+ * Created by Ashutosh on 02-Sep-16.
  */
-public class MicrosoftEdge {
+
+/*
+* Contains MicrosoftEdge browser initialization code
+* */
+public class MicrosoftEdge{
 
     public static WebDriver driver = null;
 
-    public WebDriver getIEDriver(String driverResource) {
+    public WebDriver getDriver(String driverResource) {
 
         System.out.println("launching Edge browser");
         System.setProperty("webdriver.edge.driver", driverResource + "/MicrosoftWebDriver.exe");

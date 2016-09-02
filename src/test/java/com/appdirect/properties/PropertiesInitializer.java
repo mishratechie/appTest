@@ -7,9 +7,13 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * Created by Ashutosh on 30-Aug-16.
- * Please contact mishra.techie@gmail.com with your queries
+ * Created by Ashutosh on 02-Sep-16.
  */
+
+/*
+*
+* We make the PropertiesInitializer a singleton to ensure at a given point we only have one object of the class
+* */
 public class PropertiesInitializer {
 
 
@@ -23,7 +27,6 @@ public class PropertiesInitializer {
         this.properties = new Properties();
 
         File fileUserProp = new File("./src/test/resources/props/" + ENV + ".properties");
-        //String pathUserProp = fileUserProp.getAbsolutePath();
         properties.load(new FileInputStream(fileUserProp));
     }
 

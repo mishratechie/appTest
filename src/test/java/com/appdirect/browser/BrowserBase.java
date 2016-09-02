@@ -1,20 +1,20 @@
 package com.appdirect.browser;
 
-import com.appdirect.common.Helper;
 import com.appdirect.properties.PropertiesInitializer;
-import org.junit.BeforeClass;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Ashutosh on 31-Aug-16.
+ * Created by Ashutosh on 02-Sep-16.
  */
+
+/*
+* This is a base class for all available Browsers
+* As we want to start the browser with our home page url up for test cases we put this functionality under @BeforeMethod so that we can run this before every method
+* */
 public class BrowserBase {
 
     protected static WebDriver driver;
@@ -34,38 +34,31 @@ public class BrowserBase {
         if (browserToRun.equalsIgnoreCase("firefox")) {
 
             Firefox firefox = new Firefox();
-            driver = firefox.getFirefoxDriver();
-            driver.manage().window().maximize();
+            driver = firefox.getDriver();
+
         } else if (browserToRun.equalsIgnoreCase("chrome")) {
 
             Chrome chrome = new Chrome();
-            driver = chrome.getChromeDriver(driverResource);
-            driver.manage().window().maximize();
+            driver = chrome.getDriver(driverResource);
+
         } else if (browserToRun.equalsIgnoreCase("edge")) {
 
             MicrosoftEdge microsoftEdge = new MicrosoftEdge();
-            microsoftEdge.getIEDriver(driverResource);
-            driver.manage().window().maximize();
+            microsoftEdge.getDriver(driverResource);
+
 
         } else if (browserToRun.equalsIgnoreCase("ie")) {
             InternetExplorer internetExplorer = new InternetExplorer();
-            internetExplorer.getIEDriver(driverResource);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
+            internetExplorer.getDriver(driverResource);
+
         }
 
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(PropertiesInitializer.getInstance(BrowserBase.environmentToRun).getBaseURL());
+        driver.manage().window().maximize();
 
     }
 
-    public String jScriptExecutor(WebDriver driver, String jscript) {
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        String jScriptResult = (String) js.executeScript("return " + jscript);
-
-        return jScriptResult;
-
-    }
 
     @AfterMethod
     public void tearDown() {
