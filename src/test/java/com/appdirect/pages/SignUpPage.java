@@ -20,14 +20,16 @@ public class SignUpPage {
 
     public SignUpPage(WebDriver driver) {
 
+        this.driver = driver;
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5000);
         webDriverWait.until(ExpectedConditions.urlContains("signup"));
         String url = driver.getCurrentUrl();
         if(!url.contains("signup"))
         {
             System.err.println("This is not the SIGNUP page");
+            throw new IllegalStateException("This is not required page, current page is: "+driver.getCurrentUrl());
         }
-        this.driver = driver;
+
     }
 
     public SignUpPage enterEmail() {

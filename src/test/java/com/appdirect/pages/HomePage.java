@@ -18,14 +18,17 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
 
+        this.driver = driver;
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5000);
         webDriverWait.until(ExpectedConditions.urlContains("appdirect"));
         String url = driver.getCurrentUrl();
         if(!url.contains("appdirect.com"))
         {
             System.err.println("This is not the HOME page");
+            throw new IllegalStateException("This is not required page, current page is: "+driver.getCurrentUrl());
+
         }
-        this.driver = driver;
+
     }
 
     public LoginPage clickLogIn() {
